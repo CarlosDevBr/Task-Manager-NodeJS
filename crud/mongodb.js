@@ -1,4 +1,4 @@
-//CRUD(Create, Read, Update and Delete)
+   //CRUD(Create, Read, Update and Delete)
 
 const {MongoClient, ObjectID}= require('mongodb')
 
@@ -12,6 +12,7 @@ MongoClient.connect(connectionURL,{ useNewUrlParser: true, useUnifiedTopology: t
 
     const db = client.db(databaseName)
 
+    
     /* CREATE */
     // ----> CREATE ONE
     db.collection('users').insertOne({
@@ -87,14 +88,14 @@ MongoClient.connect(connectionURL,{ useNewUrlParser: true, useUnifiedTopology: t
     })
     /* DELETE */
     // ----> DELETE ONE
-    db.collection('users').deleteOne({
-       age: 33 
+    db.collection('tasks').deleteOne({
+       description: 'Fazer um sistema financeiro' 
     }).then((result) => {
         console.log(result.deletedCount)
     }).catch((error) => {
         console.log(error)
     })
-    // ----> DELETE SEVERAL
+   // ----> DELETE SEVERAL
     db.collection('users').deleteMany({
         age: 23
     }).then((result) => {
